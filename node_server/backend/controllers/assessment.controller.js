@@ -29,5 +29,5 @@ const getAssessment = async (req, res) => {
 };
 
 module.exports = {
-    assessUrl: getAssessment
+    getAssessment
 }
