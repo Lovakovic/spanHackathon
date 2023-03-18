@@ -16,7 +16,7 @@ const Login = ({setShowSidebar}) => {
     }   
 
   return (
-   <div className="login container">
+       <div className="login container">
     {showForm ? (
         loginState ? <LoginForm handleLoginState={handleLoginState}/> : <RegisterForm handleLoginState={handleLoginState}/>) :
     <>

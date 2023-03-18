@@ -15,6 +15,9 @@ h2{
     margin-bottom: 50px;
     color: grey;
 }
+
+
+
 input[type=email] {
     border: none;
     border-radius: 5px;
@@ -26,9 +29,9 @@ input[type=email] {
 
     &:focus {
         border: none;
-        border-radius: 0px;
+        border-radius: 5px 5px 0px 0px;
         border-bottom: 2px solid $accent-color;
-        background-color: $primary-color;
+        background-color: $light-secondary-color;
     }
 }
 input[type=password] {
@@ -42,9 +45,9 @@ input[type=password] {
 
     &:focus {
         border: none;
-        border-radius: 0px;
+        border-radius: 5px 5px 0px 0px;
         border-bottom: 2px solid $accent-color;
-        background-color: $primary-color;
+        background-color: $light-secondary-color;
     }
 }
 .button{
@@ -60,6 +63,8 @@ input[type=password] {
     margin-bottom: 20px;
     transition: 0.5s;
     opacity: 0.6;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+
 
     &:hover{
         opacity: 1;
