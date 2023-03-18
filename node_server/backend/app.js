@@ -24,5 +24,7 @@ app.use(cors())
 const eventRouter = require('./routes/event.routes');
 app.use('/event', eventRouter);
 
+const assessmentRouter = require('./routes/assessment.routes');
+app.use('/assess', assessmentRouter);
 
 module.exports = app;
