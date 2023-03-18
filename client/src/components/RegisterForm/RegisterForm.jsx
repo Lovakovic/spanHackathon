@@ -1,6 +1,8 @@
 import React, { useState,useContext } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { AuthContext } from '../../context/AuthContext';
+import {AiOutlineMail} from "react-icons/ai";
+import {BiLock} from "react-icons/bi";
 
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../services/firebase';
@@ -35,8 +37,18 @@ const RegisterForm = ({handleLoginState}) => {
         {error && <span className='alert'>Invalid register data!</span>}
         <h2 id="welcome">Welcome!</h2>
         <p id="cyberText">Cyber security? Yes</p>
-        <input type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)}/>
-        <input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)}/>
+        <div className="input-wrapper">
+          <label htmlFor="email">
+            <AiOutlineMail/>
+          </label>
+         <input type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)}/>
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="password">
+            <BiLock/>
+          </label>
+          <input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)}/>
+        </div>
         <button class="button" onClick={handleRegister}>Register</button>
         <p class="p">Already a user? <a onClick={handleLoginState} id="userLink">Login</a></p>
     </div>

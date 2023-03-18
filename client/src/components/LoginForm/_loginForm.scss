@@ -46,7 +46,7 @@ input[type=password]:focus {
     background-color: $primary-color;
 }
 .button{
-    background-image: linear-gradient(to top right, $accent-color, violet);
+    background-image: $gradient;
     width: 100%;
     border: none;
     border-radius: 5px;
@@ -75,4 +75,20 @@ input[type=password]:focus {
     cursor: pointer;
     color: $hover-color;
     transition: 0.5s;
+}
+
+.input-wrapper{
+    position:relative;
+
+    input{
+        padding-left: 40px;
+    }
+
+    label svg{
+        position: absolute;
+        left: 0.75rem;
+        top: 0.75rem;
+        font-size: 1.25rem;
+        font-size: 20px;
+    }
 }

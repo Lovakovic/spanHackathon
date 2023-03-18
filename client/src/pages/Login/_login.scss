@@ -15,26 +15,51 @@
     justify-content: center;
     gap:20px;
 
+    p{
+        color:$secondary-text-color;
+    }
+
     h1{
-        border-bottom: 5px solid $accent-color;
+        border-bottom: 3px solid $accent-color;
     }
 
     button{
-        background-color: $accent-color;
-        color:#FFF;
-        width:25%;
-        padding: 10px;
+        background-image: linear-gradient(to top right, $accent-color, violet);
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        color: $primary-color;
         font-weight: bold;
-        cursor:pointer;
-        border:none;
-        align-self: center;
-        border-radius:5px;
+        cursor: pointer;
+        padding: 10px;
         font-size: 20px;
-
-        &:hover{
-            background-color: $hover-color;
-        }
+        margin-bottom: 20px;
+        transition: 0.5s;
+        opacity: 0.6;
+        width:50%;
+        align-self: center;
     }
+    button:hover{
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    // button{
+    //     background-color: $accent-color;
+    //     color:#FFF;
+    //     width:25%;
+    //     padding: 10px;
+    //     font-weight: bold;
+    //     cursor:pointer;
+    //     border:none;
+    //     align-self: center;
+    //     border-radius:5px;
+    //     font-size: 20px;
+
+    //     &:hover{
+    //         background-color: $hover-color;
+    //     }
+    // }
 
 }
 
