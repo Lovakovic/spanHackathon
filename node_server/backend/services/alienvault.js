@@ -5,7 +5,7 @@ const config = require("../config");
 const assessUrl = async (url) => {
     try {
         const response = await axios.get(
-            config.baseUrl + '/api/v1/indicators/domain/' + url + '/general',
+            config.baseAlienVaultUrl + '/api/v1/indicators/domain/' + url + '/general',
             {
                 headers: {
                     'X-OTX-API-KEY': config.alienVaultApiKey,
@@ -19,7 +19,7 @@ const assessUrl = async (url) => {
         // Site has been reported, query if malware distribution has also been reported
         if(pulseCount > 0){
             const response = await axios.get(
-                config.baseUrl + '/api/v1/indicators/domain/' + url + '/malware',
+                config.baseAlienVaultUrl + '/api/v1/indicators/domain/' + url + '/malware',
                 {
                     headers: {
                         'X-OTX-API-KEY': config.alienVaultApiKey,
