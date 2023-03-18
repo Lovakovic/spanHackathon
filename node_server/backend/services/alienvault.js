@@ -2,13 +2,13 @@ const axios = require("axios");
 const config = require("../config");
 
 // Returns object with containing info gained from general assessment
-const assessUrl = async (url, apiKey) => {
+const assessUrl = async (url) => {
     try {
         const response = await axios.get(
             config.baseUrl + '/api/v1/indicators/domain/' + url + '/general',
             {
                 headers: {
-                    'X-OTX-API-KEY': apiKey,
+                    'X-OTX-API-KEY': config.alienVaultApiKey,
                 },
             }
         );
@@ -22,7 +22,7 @@ const assessUrl = async (url, apiKey) => {
                 config.baseUrl + '/api/v1/indicators/domain/' + url + '/malware',
                 {
                     headers: {
-                        'X-OTX-API-KEY': apiKey,
+                        'X-OTX-API-KEY': config.alienVaultApiKey,
                     },
                 }
             );
