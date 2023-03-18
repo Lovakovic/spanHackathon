@@ -1,6 +1,12 @@
 import React from 'react'
+import { useEffect } from 'react';
 
-const Dashboard = () => {
+const Dashboard = ({setShowSidebar}) => {
+
+    useEffect(() => {
+      setShowSidebar(true);
+  },[setShowSidebar])
+
   return (
     <div>Dashboard</div>
   )
