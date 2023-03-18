@@ -18,10 +18,10 @@ app.use(cookieParser());
 
 app.use(helmet());
 app.use(morgan('dev'));
-app.use(cors());
+app.use(cors())
 
+// const templateRouter = require('./routes/template.routes');
+// app.use('/activities', templateRouter);
 
-const testRouter = require('./routes/test.route');
-app.use('/test', testRouter);
 
 module.exports = app;
