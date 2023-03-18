@@ -21,5 +21,15 @@
         &:hover{
             color:$accent-color;
         }
+
+        
+    }
+
+    .selected{
+        color:$accent-color;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        cursor: pointer;
     }
 }

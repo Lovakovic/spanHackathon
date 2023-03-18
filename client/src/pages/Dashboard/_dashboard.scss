@@ -1,0 +1,47 @@
+.dashboard{
+    display: flex;
+    justify-content:flex-start;
+    width:100%;
+    padding: 20px;
+    
+    .info-boxes{
+        display: flex;
+        flex:1;
+        gap:20px;
+
+
+
+        .info-box{
+            
+            &:nth-child(1) {
+                .icon-wrapper{
+                    background-color: $icon-background-blue;
+                    color:$icon-color-blue;
+                }
+            }
+
+            &:nth-child(2) {
+                .icon-wrapper{
+                    background-color: $icon-background-red;
+                    color:$icon-color-red;
+                }
+            }
+
+            &:nth-child(3) {
+                .icon-wrapper{
+                    background-color: $icon-background-yellow;
+                    color:$icon-color-yellow;
+                }
+            }
+
+            &:nth-child(4) {
+                .icon-wrapper{
+                    background-color: $icon-background-green;
+                    color:$icon-color-green;
+                }
+            }
+        }
+    }
+
+    
+}
