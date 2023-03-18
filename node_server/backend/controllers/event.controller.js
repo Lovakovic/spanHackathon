@@ -6,7 +6,7 @@ const getAllEvents = async (req, res) => {
         let rows = await conn.query('SELECT * FROM maliciousEvent');
         conn.release();
 
-        return res.json('success!');
+        return res.status(200).json(rows);
     } catch (err) {
         console.log(err);
         return res.status(500).send();
