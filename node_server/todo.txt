@@ -1,0 +1,2 @@
+- add lengthy report endpoint
+- expand `assessmentReport` entity with info from lengthy report
