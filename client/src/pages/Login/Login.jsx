@@ -21,8 +21,9 @@ const Login = ({setShowSidebar}) => {
         loginState ? <LoginForm handleLoginState={handleLoginState}/> : <RegisterForm handleLoginState={handleLoginState}/>) :
     <>
         <div className="left">
-        <h1>Lorem, ipsum.</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, magnam.</p>
+        <h1><span>File seems off?</span></h1>
+        <div id="gradLine"></div>
+        <p>We at TVeZ observe, detect and monitor malicious links, files and data in general.</p>
         <button onClick={() => setShowForm(true)}>Login</button>
     </div>
     <div className="right">
