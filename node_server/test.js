@@ -22,9 +22,11 @@ const submitUrl = async (url, apiKey) => {
     }
 };
 
+
+
 // Returns assessment object containing `url` queried, `pulse_info` and `malware` data?
 
 
 const apiKey = 'd5ff7a0e3d91b331cdb49bd38e1f65ab57a4f40a03b32409fcf2d95af9f2b22a';
-const urlToSubmit = 'www.runstarhrvatska.com';
-submitURL(urlToSubmit, apiKey);
+const urlToSubmit = 'facebook.com';
+assessUrl(urlToSubmit, apiKey);
