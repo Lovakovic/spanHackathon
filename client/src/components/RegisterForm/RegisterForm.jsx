@@ -5,7 +5,7 @@ const RegisterForm = ({handleLoginState}) => {
     const [password,setPassword] = useState();
 
   return (
-    <div className="login-form">
+    <div className="register-form">
         <input type="email" placeholder='email'/>
         <input type="password" placeholder='password'/>
         <button>Register</button>
