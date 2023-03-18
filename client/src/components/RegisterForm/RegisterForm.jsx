@@ -33,10 +33,12 @@ const RegisterForm = ({handleLoginState}) => {
   return (
     <div className="login-form">
         {error && <span className='alert'>Invalid register data!</span>}
+        <h2 id="welcome">Welcome!</h2>
+        <p id="cyberText">Cyber security? Yes</p>
         <input type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)}/>
         <input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)}/>
-        <button onClick={handleRegister}>Register</button>
-        <a onClick={handleLoginState}>Already a user? Login</a>
+        <button class="button" onClick={handleRegister}>Register</button>
+        <p class="p">Already a user? <a onClick={handleLoginState} id="userLink">Login</a></p>
     </div>
   )
 }

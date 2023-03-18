@@ -34,12 +34,14 @@ const LoginForm = ({handleLoginState}) => {
     }
 
   return (
-    <div className="login-form">  
-        {error && <span className='alert'>Invalid login!</span>}
+    <div className="login-form">
+      {error && <span className='alert'>Invalid login!</span>}
+        <h2 id="welcome">Welcome back!</h2>
+        <p id="cyberText">Cyber security? Yes</p>
         <input type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)}/>
         <input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)}/>
-        <button onClick={handleLogin}>Login</button>
-        <a onClick={handleLoginState}>Not a user? Register.</a>
+        <button class="button" onClick={handleLogin}>Login</button>
+        <p class="p">Not a user? <a onClick={handleLoginState} id="userLink">Register</a></p>
     </div>
   )
 }
