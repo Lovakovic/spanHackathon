@@ -1,0 +1,52 @@
+@import "../../style/colors";
+
+.login{
+    display: flex;
+    height:100vh;
+    max-width: 1200px;
+    margin: auto;
+    color:$text-color;
+    padding: 0px 10px;
+
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+
+    h1{
+        border-bottom: 5px solid $accent-color;
+    }
+
+    button{
+        background-color: $accent-color;
+        color:#FFF;
+        width:25%;
+        padding: 10px;
+        font-weight: bold;
+        cursor:pointer;
+        border:none;
+        align-self: center;
+        border-radius:5px;
+        font-size: 20px;
+
+        &:hover{
+            background-color: $hover-color;
+        }
+    }
+
+}
+
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        height:90%;
+        width:80%
+
+    }
+}
