@@ -8,6 +8,8 @@ $text-color: #403C3D;
 $secondary-text-color: grey;
 $gradient: linear-gradient(to top right, $accent-color, violet);
 
+$shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 
 //=====ICONS COLOR AND BACKGROUNDS======//
 $icon-background-blue: rgba(7, 162, 224, 0.1);
@@ -21,5 +23,8 @@ $icon-color-green: rgb(7, 224, 58);
 
 $icon-background-yellow: rgba(224, 184, 7, 0.1);
 $icon-color-yellow: rgb(224, 184, 7);
+
+$icon-background-violet: rgba(238, 130, 238, 0.1);
+$icon-color-violet: rgb(238, 130, 238);
 
 

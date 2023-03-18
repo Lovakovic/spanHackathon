@@ -23,8 +23,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login setShowSidebar={setShowSidebar}/>}/>
         <Route path="/" element={<RequireAuth><Dashboard setShowSidebar={setShowSidebar}/></RequireAuth>}/>
-        <Route path="records" element={<RequireAuth><Records setShowSidebar={setShowSidebar}/></RequireAuth>}/>
-        <Route path="scan" element={<RequireAuth><Scan setShowSidebar={setShowSidebar}/></RequireAuth>}/>
+        <Route path="/records" element={<RequireAuth><Records setShowSidebar={setShowSidebar}/></RequireAuth>}/>
+        <Route path="/scan" element={<RequireAuth><Scan setShowSidebar={setShowSidebar}/></RequireAuth>}/>
       </Routes>
     </div>
   )
