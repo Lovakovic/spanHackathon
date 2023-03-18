@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-const LoginForm = ({handleLoginState}) => {
-
+const RegisterForm = ({handleLoginState}) => {
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
 
@@ -9,10 +8,10 @@ const LoginForm = ({handleLoginState}) => {
     <div className="login-form">
         <input type="email" placeholder='email'/>
         <input type="password" placeholder='password'/>
-        <button>Login</button>
-        <a onClick={handleLoginState}>Not a user? Register.</a>
+        <button>Register</button>
+        <a onClick={handleLoginState}>Already a user? Login</a>
     </div>
   )
 }
 
-export default LoginForm
+export default RegisterForm
