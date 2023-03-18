@@ -38,10 +38,11 @@
         opacity: 0.6;
         width:50%;
         align-self: center;
-    }
-    button:hover{
-        opacity: 1;
-        transition: 0.5s;
+
+        &:hover{
+            opacity: 1;
+            transition: 0.5s;
+        }
     }
 
     // button{
