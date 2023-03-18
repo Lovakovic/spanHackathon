@@ -49,8 +49,8 @@ DROP TABLE IF EXISTS `hackathon`.`assessmentReport` ;
 
 CREATE TABLE IF NOT EXISTS `hackathon`.`assessmentReport` (
       `id` INT NOT NULL AUTO_INCREMENT,
-      `pulseCount` INT NOT NULL,
-      `malwareCount` INT NOT NULL,
+      `pulseCount` INT NOT NULL DEFAULT 0,
+      `malwareCount` INT NOT NULL DEFAULT 0,
       `threatType` ENUM('THREAT_TYPE_UNSPECIFIED', 'MALWARE', 'SOCIAL_ENGINEERING', 'UNWANTED_SOFTWARE', 'POTENTIALLY_HARMFUL_APPLICATION') NULL DEFAULT 'THREAT_TYPE_UNSPECIFIED',
       `platformTypeId` INT NULL,
       PRIMARY KEY (`id`),
