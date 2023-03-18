@@ -2,7 +2,7 @@ const axios = require("axios");
 const config = require("../config");
 
 // Returns object with containing info gained from general assessment
-const assessUrl = async (url) => {
+const assess = async (url) => {
     try {
         const response = await axios.get(
             config.baseAlienVaultUrl + '/api/v1/indicators/domain/' + url + '/general',
@@ -40,5 +40,5 @@ const assessUrl = async (url) => {
 
 
 module.exports = {
-    assessUrl
+    assess
 };
