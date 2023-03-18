@@ -1,24 +1,28 @@
 import { Routes,Route,Navigate } from 'react-router-dom'
 import Login from "./pages/Login/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from './context/AuthContext';
+import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
 
   const {currentUser} = useContext(AuthContext);
+
+  const [showSidebar,setShowSidebar] = useState(true);
 
   const RequireAuth = ({children}) => {
     return currentUser ? children : <Navigate to="/login"/>
   }
 
   return (
-    <>
+    <div className='app'>
+      {showSidebar && <Sidebar/>}
       <Routes>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/" element={<RequireAuth><Dashboard/></RequireAuth>}/>
+        <Route path="/login" element={<Login setShowSidebar={setShowSidebar}/>}/>
+        <Route path="/" element={<RequireAuth><Dashboard setShowSidebar={setShowSidebar}/></RequireAuth>}/>
       </Routes>
-    </>
+    </div>
   )
 }
 

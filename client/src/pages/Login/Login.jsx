@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LoginForm from "../../components/LoginForm/LoginForm";
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
-const Login = () => {
+const Login = ({setShowSidebar}) => {
 
     const [showForm,setShowForm] = useState(false);
     const [loginState,setLoginState] = useState(true);
+
+    useEffect(() => {
+        setShowSidebar(false);
+    },[setShowSidebar])
 
     const handleLoginState = () =>{
         setLoginState(!loginState);
