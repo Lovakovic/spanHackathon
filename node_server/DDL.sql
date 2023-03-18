@@ -21,10 +21,24 @@ USE `hackathon` ;
 DROP TABLE IF EXISTS `hackathon`.`device` ;
 
 CREATE TABLE IF NOT EXISTS `hackathon`.`device` (
-        `id` INT NOT NULL AUTO_INCREMENT,
-        `name` VARCHAR(255) NOT NULL,
-        `operatingSystem` VARCHAR(100) NULL,
-        PRIMARY KEY (`id`))
+                                                    `id` INT NOT NULL AUTO_INCREMENT,
+                                                    `name` VARCHAR(255) NOT NULL,
+                                                    `operatingSystem` VARCHAR(100) NULL,
+                                                    `ipv4Address` VARCHAR(20) NULL,
+                                                    `macAddress` VARCHAR(50) NULL,
+                                                    PRIMARY KEY (`id`))
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `hackathon`.`platformType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `hackathon`.`platformType` ;
+
+CREATE TABLE IF NOT EXISTS `hackathon`.`platformType` (
+                                                          `id` INT NOT NULL AUTO_INCREMENT,
+                                                          `name` VARCHAR(55) NOT NULL,
+                                                          PRIMARY KEY (`id`))
     ENGINE = InnoDB;
 
 
@@ -34,10 +48,18 @@ CREATE TABLE IF NOT EXISTS `hackathon`.`device` (
 DROP TABLE IF EXISTS `hackathon`.`assessmentReport` ;
 
 CREATE TABLE IF NOT EXISTS `hackathon`.`assessmentReport` (
-      `id` INT NOT NULL,
-      `pulseCount` INT NOT NULL,
-      `malwareCount` INT NOT NULL,
-      PRIMARY KEY (`id`))
+                                                              `id` INT NOT NULL AUTO_INCREMENT,
+                                                              `pulseCount` INT NOT NULL,
+                                                              `malwareCount` INT NOT NULL,
+                                                              `threatType` ENUM('THREAT_TYPE_UNSPECIFIED', 'MALWARE', 'SOCIAL_ENGINEERING', 'UNWANTED_SOFTWARE', 'POTENTIALLY_HARMFUL_APPLICATION') NULL DEFAULT 'THREAT_TYPE_UNSPECIFIED',
+                                                              `platformTypeId` INT NULL,
+                                                              PRIMARY KEY (`id`),
+                                                              INDEX `fk_assessmentReport_platformType1_idx` (`platformTypeId` ASC) VISIBLE,
+                                                              CONSTRAINT `fk_assessmentReport_platformType1`
+                                                                  FOREIGN KEY (`platformTypeId`)
+                                                                      REFERENCES `hackathon`.`platformType` (`id`)
+                                                                      ON DELETE NO ACTION
+                                                                      ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
 
@@ -47,26 +69,26 @@ CREATE TABLE IF NOT EXISTS `hackathon`.`assessmentReport` (
 DROP TABLE IF EXISTS `hackathon`.`maliciousEvent` ;
 
 CREATE TABLE IF NOT EXISTS `hackathon`.`maliciousEvent` (
-        `id` INT NOT NULL AUTO_INCREMENT,
-        `urlVisited` VARCHAR(255) NOT NULL,
-        `visitedAt` VARCHAR(45) NOT NULL DEFAULT 'NOW()',
-        `originIp` VARCHAR(20) NULL,
-        `threatLevel` ENUM('high', 'low', 'undefined') NOT NULL,
-        `deviceId` INT NOT NULL,
-        `assessmentReportId` INT NOT NULL,
-        PRIMARY KEY (`id`),
-        INDEX `fk_malicuousEvent_device1_idx` (`deviceId` ASC) VISIBLE,
-        INDEX `fk_maliciousEvent_assessmentReport1_idx` (`assessmentReportId` ASC) VISIBLE,
-        CONSTRAINT `fk_malicuousEvent_device1`
-        FOREIGN KEY (`deviceId`)
-        REFERENCES `hackathon`.`device` (`id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
-        CONSTRAINT `fk_maliciousEvent_assessmentReport1`
-        FOREIGN KEY (`assessmentReportId`)
-        REFERENCES `hackathon`.`assessmentReport` (`id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION)
+                                                            `id` INT NOT NULL AUTO_INCREMENT,
+                                                            `urlVisited` VARCHAR(255) NOT NULL,
+                                                            `visitedAt` VARCHAR(45) NOT NULL DEFAULT 'NOW()',
+                                                            `originIp` VARCHAR(20) NULL,
+                                                            `threatLevel` ENUM('high', 'low', 'undefined') NOT NULL,
+                                                            `deviceId` INT NOT NULL,
+                                                            `assessmentReportId` INT NOT NULL,
+                                                            PRIMARY KEY (`id`),
+                                                            INDEX `fk_malicuousEvent_device1_idx` (`deviceId` ASC) VISIBLE,
+                                                            INDEX `fk_maliciousEvent_assessmentReport1_idx` (`assessmentReportId` ASC) VISIBLE,
+                                                            CONSTRAINT `fk_malicuousEvent_device1`
+                                                                FOREIGN KEY (`deviceId`)
+                                                                    REFERENCES `hackathon`.`device` (`id`)
+                                                                    ON DELETE NO ACTION
+                                                                    ON UPDATE NO ACTION,
+                                                            CONSTRAINT `fk_maliciousEvent_assessmentReport1`
+                                                                FOREIGN KEY (`assessmentReportId`)
+                                                                    REFERENCES `hackathon`.`assessmentReport` (`id`)
+                                                                    ON DELETE NO ACTION
+                                                                    ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
 
