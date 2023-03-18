@@ -23,12 +23,13 @@ input[type=email] {
     outline: none;
     font-size: 20px;
     margin-bottom: 15px;
-}
-input[type=email]:focus {
-    border: none;
-    border-radius: 0px;
-    border-bottom: 2px solid $accent-color;
-    background-color: $primary-color;
+
+    &:focus {
+        border: none;
+        border-radius: 0px;
+        border-bottom: 2px solid $accent-color;
+        background-color: $primary-color;
+    }
 }
 input[type=password] {
     border: none;
@@ -38,12 +39,13 @@ input[type=password] {
     outline: none;
     font-size: 20px;
     margin-bottom: 50px;
-}
-input[type=password]:focus {
-    border: none;
-    border-radius: 0px;
-    border-bottom: 2px solid $accent-color;
-    background-color: $primary-color;
+
+    &:focus {
+        border: none;
+        border-radius: 0px;
+        border-bottom: 2px solid $accent-color;
+        background-color: $primary-color;
+    }
 }
 .button{
     background-image: $gradient;
@@ -58,10 +60,11 @@ input[type=password]:focus {
     margin-bottom: 20px;
     transition: 0.5s;
     opacity: 0.6;
-}
-.button:hover{
-    opacity: 1;
-    transition: 0.5s;
+
+    &:hover{
+        opacity: 1;
+        transition: 0.5s;
+    }
 }
 .p{
     text-align: center;
@@ -70,11 +73,12 @@ input[type=password]:focus {
 #userLink{
     color: $accent-color;
     transition: 0.5s;
-}
-#userLink:hover{
-    cursor: pointer;
-    color: $hover-color;
-    transition: 0.5s;
+
+    &:hover{
+        cursor: pointer;
+        color: $hover-color;
+        transition: 0.5s;
+    }
 }
 
 .input-wrapper{
