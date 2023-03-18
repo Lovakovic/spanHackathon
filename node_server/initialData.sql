@@ -1,0 +1,9 @@
+INSERT INTO platformType(name) VALUES ('PLATFORM_TYPE_UNSPECIFIED');
+INSERT INTO platformType(name) VALUES ('WINDOWS');
+INSERT INTO platformType(name) VALUES ('LINUX');
+INSERT INTO platformType(name) VALUES ('ANDROID');
+INSERT INTO platformType(name) VALUES ('OSX');
+INSERT INTO platformType(name) VALUES ('IOS');
+INSERT INTO platformType(name) VALUES ('ANY_PLATFORM');
+INSERT INTO platformType(name) VALUES ('ALL_PLATFORMS');
+INSERT INTO platformType(name) VALUES ('CHROME');
