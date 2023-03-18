@@ -20,8 +20,9 @@ app.use(helmet());
 app.use(morgan('dev'));
 app.use(cors())
 
-// const templateRouter = require('./routes/template.routes');
-// app.use('/activities', templateRouter);
+
+const eventRouter = require('./routes/event.routes');
+app.use('/event', eventRouter);
 
 
 module.exports = app;
