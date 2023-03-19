@@ -2,9 +2,9 @@ module.exports = {
     port: process.env.PORT || 8081,
     pool: {
         connectionLimit: 100,
-        host: 'localhost',
-        user: 'dev',
-        password: 'devpass',
+        host: '34.154.172.24',
+        user: 'root',
+        password: 'ujgQO6Uj5K?,xu:f',
         database: 'hackathon',
         debug: false
     },
