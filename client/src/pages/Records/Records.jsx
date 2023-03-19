@@ -64,8 +64,8 @@ const Records = ({setShowSidebar}) => {
     useEffect(() => {
         setShowSidebar(true);
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:8081/event/all`);
-            console.log(`http://localhost:8081/event/all`);
+            const response = await fetch(`${apiUrl}/event/all`);
+            console.log(`${apiUrl}/event/all`);
             const json = await response.json();
             console.log(json);
             setData(json);
