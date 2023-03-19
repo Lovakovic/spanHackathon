@@ -43,7 +43,7 @@ on port `8081`, otherwise modify port in API call accordingly
   * evaluates and assesses threats on provided `url`, inserts new `assessmentReport` object into DB, 
     as well as returning it inside of response body
   * params: 
-    * `url` - unmodified page url or IPv4 address
+    * `url` - domain url without protocol or parameters eg. `facebook.com`
     * example of a reply
   * example of a response body (in case of APIs returning `malwareCount` and `pulseCoun` of `0`: 
     * `{
