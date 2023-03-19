@@ -1,0 +1,98 @@
+.records{
+    width:100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .filters{
+        display: flex;
+        align-items: center;
+        gap:10px;
+
+        span{
+            color:$text-color;
+        }
+
+        .input-wrapper{
+            position:relative;
+        
+            input{
+                padding-left: 40px;
+            }
+        
+            label svg{
+                position: absolute;
+                left: 0.5rem;
+                top: 0.5rem;
+                font-size: 1.25rem;
+                font-size: 20px;
+                z-index: 100;
+            }
+        }
+
+        .datepicker{
+            margin: 0;
+            border: none;
+            border-radius: 5px;
+            background-color: $secondary-color;
+            padding: 10px;
+            outline: none;
+            font-size: 15px;
+
+            &:focus {
+                border: none;
+                border-radius: 5px 5px 0px 0px;
+                // border-bottom: 1px solid $accent-color;
+                background-color: $light-secondary-color;
+            }
+        }
+
+        .css-13cymwt-control{
+            background-color: $secondary-color;
+            border:none;
+
+            
+        }
+
+        .css-t3ipsp-control{
+            outline:none;
+            border:none;
+            box-shadow:none;
+            background-color: $secondary-color;
+        }
+          
+    }
+
+    .loaders{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 50px;
+        border-radius: 10px;
+        background-color: $secondary-color;
+    }
+
+    .list{
+        display: flex;
+        flex-direction: column;
+
+        .titles{
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            border-bottom:1px solid $gray-accent-color;
+            padding: 10px;
+
+            .icon{
+                font-size: 23px;
+                cursor: pointer;
+            }
+
+            span{
+                flex:1;
+            }
+        }
+    }
+}

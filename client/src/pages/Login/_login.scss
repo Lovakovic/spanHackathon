@@ -1,0 +1,73 @@
+@import "../../style/colors";
+
+
+.login{
+    display: flex;
+    height:100vh;
+    margin: auto;
+    color:$text-color;
+    padding: 0px 10px;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+
+    p{
+        color: $secondary-text-color;
+    }
+
+    h1 > span{
+        text-shadow: 2px 2px 10px $secondary-text-color;
+        color: #303030;
+        transition: 0.5s;
+        cursor: default;
+
+        &:hover{
+            text-shadow: 2px 2px 10px violet;
+            transition: 0.5s;
+            cursor: default;
+        }
+    }
+
+    #gradLine{
+        height: 3px; 
+        background: linear-gradient(to right, $accent-color, violet, rgba(0, 0, 0, 0));
+    }
+
+    button{
+        background-image: linear-gradient(to top right, $accent-color, violet);
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        color: $primary-color;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        transition: 0.5s;
+        opacity: 0.6;
+        width:50%;
+        align-self: center;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+
+        &:hover{
+            opacity: 1;
+            transition: 0.5s;
+        }
+    }
+}
+
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        height: 90%;
+        width: 80%;
+    }
+}

@@ -1,0 +1,57 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    width:100%;
+    padding: 20px;
+    gap:30px;
+    
+    .info-boxes{
+        display: flex;
+        flex-wrap: wrap;
+        // flex:1;
+        gap:20px;
+        // align-items: stretch;
+
+
+        .info-box{
+            
+            &:nth-child(1) {
+                .icon-wrapper{
+                    background-color: $icon-background-blue;
+                    color:$icon-color-blue;
+                }
+            }
+
+            &:nth-child(3) {
+                .icon-wrapper{
+                    background-color: $icon-background-red;
+                    color:$icon-color-red;
+                }
+            }
+
+            &:nth-child(2) {
+                .icon-wrapper{
+                    background-color: $icon-background-violet;
+                    color:$icon-color-violet;
+                }
+            }
+
+            &:nth-child(4) {
+                .icon-wrapper{
+                    background-color: $icon-background-green;
+                    color:$icon-color-green;
+                }
+            }
+        }
+    }
+
+    .chart-wrapper{
+        background-color: $secondary-color;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: $shadow;
+    }
+
+    
+}
