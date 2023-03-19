@@ -48,7 +48,8 @@ on port `8081`, otherwise modify port in API call accordingly
   * example of a response body (in case of APIs returning `malwareCount` and `pulseCoun` of `0`: 
     * `{
       "url": "moj.tvz.hr",
-      "pulseCount": 0
+      "pulseCount": 0,
+      "malwareCount": 0
       }`
   * example of a response body (in case of APIs returning either `malwareCount` or `pulseCoun` greater than `0`: 
     * `{
