@@ -34,7 +34,7 @@ const Records = ({setShowSidebar}) => {
 
   const handleDelete = (id) => {
     const deleteFromDB = async () => {
-      const response = await fetch(`http://localhost:8081/event/delete/${id}`);
+      const response = await fetch(`${apiUrl}/event/delete/${id}`);
     }
     const filteredData = data.filter((threat) => threat.id !== id);
     setData(filteredData);
