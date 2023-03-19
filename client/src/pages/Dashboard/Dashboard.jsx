@@ -6,6 +6,7 @@ import {IoEarthOutline} from "react-icons/io5";
 import {HiOutlineExclamationTriangle} from "react-icons/hi2";
 import {BsCloudCheck} from "react-icons/bs";
 import { ResponsiveContainer,CartesianGrid,Tooltip,Legend } from 'recharts';
+import apiUrl from "../../env.js";
 
 import { LineChart, Line, XAxis, YAxis } from 'recharts';
 
@@ -29,8 +30,8 @@ const Dashboard = ({setShowSidebar}) => {
     useEffect(() => {
       setShowSidebar(true);
       const fetchData = async () => {
-        const response = await fetch(`http://localhost:8081/event/all`);
-        console.log(`http://localhost:8081/event/all`)
+        const response = await fetch(`${apiUrl}/event/all`);
+        console.log(`${apiUrl}/event/all`)
         const json = await response.json();
         console.log(json)
         setApiData(json)
