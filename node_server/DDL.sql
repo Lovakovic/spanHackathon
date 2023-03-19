@@ -1,3 +1,5 @@
+CREATE USER 'dev'@'localhost' IDENTIFIED BY 'devpass';
+GRANT ALL PRIVILEGES ON hackathon.* TO 'dev'@'localhost';
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
