@@ -74,4 +74,4 @@ INSERT INTO maliciousEvent (urlVisited, originIp, threatLevel, deviceId, assessm
 VALUES ('www.potentially-harmful8.com', '201.202.203.204', 'high', 8, 8);
 
 
-SELECT * FROM completeReport;
+SELECT * FROM completeReport where id = 4;

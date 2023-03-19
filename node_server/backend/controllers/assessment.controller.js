@@ -30,6 +30,21 @@ const getAssessment = async (req, res) => {
     }
 };
 
+const getAssessments = async (req, res) => {
+    try {
+        let conn = await pool.getConnection();
+        let rows = await conn.query('SELECT * FROM assessmentReport');
+        conn.release();
+
+
+        return res.status(200).json(rows);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send();
+    }
+}
+
 module.exports = {
+    getAssessments,
     getAssessment
 }

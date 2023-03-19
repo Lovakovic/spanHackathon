@@ -1,5 +1,5 @@
-CREATE USER 'dev'@'localhost' IDENTIFIED BY 'devpass';
-GRANT ALL PRIVILEGES ON hackathon.* TO 'dev'@'localhost';
+# CREATE USER 'dev'@'localhost' IDENTIFIED BY 'devpass';
+# GRANT ALL PRIVILEGES ON hackathon.* TO 'dev'@'localhost';
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -106,3 +106,13 @@ CREATE VIEW completeReport AS
         JOIN device ON maliciousEvent.deviceId = device.id
         JOIN assessmentReport ON maliciousEvent.assessmentReportId = assessmentReport.id
         JOIN platformType ON assessmentReport.platformTypeId = platformType.id;
+
+DROP PROCEDURE IF EXISTS deleteEvent;
+DELIMITER //
+CREATE PROCEDURE deleteEvent(IN i_eventId INT)
+    BEGIN
+        DELETE FROM maliciousEvent WHERE id = i_eventId;
+        DELETE FROM assessmentReport WHERE id =
+           (SELECT assessmentReportId FROM maliciousEvent WHERE maliciousEvent.id = i_eventId);
+    END //
+DELIMITER ;

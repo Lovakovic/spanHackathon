@@ -43,8 +43,13 @@ on port `8081`, otherwise modify port in API call accordingly
         "threatType": "SOCIAL_ENGINEERING",
         "platformName": "Linux"
         }]`
-
-* `GET` @ `http://localhost:8081/assess/:url`
+      
+* `GET` @ `http://localhost:8081/event/delete/:id`
+    * deletes `maliciousEvent` with specified id and its corresponding `assessmentReport`
+    * Not very REST-ful of me, I know, but React apparently doesn't natively include DELETE method and this makes life easier
+    * returns response object with empty body
+  
+* `GET` @ `http://localhost:8081/assessReport/url/:url`
   * evaluates and assesses threats on provided `url`, inserts `assessmentReport` object into DB, as well as returning it inside of response body
   * params: 
     * `url` - unmodified page url or IPv4 address
@@ -74,7 +79,23 @@ on port `8081`, otherwise modify port in API call accordingly
       "threat": {
       "url": "http://www.example-malicious-url.com"
       }}
-      ]}`
-
-
-
+      ]}`  
+    
+* `GET` @ `http://localhost:8081/assessReport/all`
+  * returns all archived assessmentReports in body of response
+  * example of a response body:
+    * `[
+      {
+      "id": 1,
+      "pulseCount": 15,
+      "malwareCount": 5,
+      "threatType": "MALWARE",
+      "platformTypeId": 1
+      },
+      {
+      "id": 2,
+      "pulseCount": 8,
+      "malwareCount": 3,
+      "threatType": "SOCIAL_ENGINEERING",
+      "platformTypeId": 2
+      }]`
