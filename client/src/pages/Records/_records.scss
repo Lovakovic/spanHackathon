@@ -1,6 +1,9 @@
 .records{
     width:100%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     .filters{
         display: flex;
@@ -45,9 +48,6 @@
             }
         }
 
-        .select{
-        }
-
         .css-13cymwt-control{
             background-color: $secondary-color;
             border:none;
@@ -62,5 +62,37 @@
             background-color: $secondary-color;
         }
           
+    }
+
+    .loaders{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 50px;
+        border-radius: 10px;
+        background-color: $secondary-color;
+    }
+
+    .list{
+        display: flex;
+        flex-direction: column;
+
+        .titles{
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            border-bottom:1px solid $gray-accent-color;
+            padding: 10px;
+
+            .icon{
+                font-size: 23px;
+                cursor: pointer;
+            }
+
+            span{
+                flex:1;
+            }
+        }
     }
 }

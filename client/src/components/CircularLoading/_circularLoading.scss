@@ -1,0 +1,13 @@
+.circular-loading{
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+    text-align: center;
+
+    .bottom{
+        color:$text-color;
+    }
+}
