@@ -7,6 +7,7 @@ import CircularLoading from '../../components/CircularLoading/CircularLoading';
 import ScanItem from '../../components/ScanItem/ScanItem';
 import {GrRefresh} from "react-icons/gr";
 import useLoaders from '../../utils/useLoaders';
+import apiUrl from "../../env.js";
 
 
 const Records = ({setShowSidebar}) => {
