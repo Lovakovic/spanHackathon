@@ -1,20 +1,9 @@
-## Setting up local server instance
-
-- navigate to `node_server` dir
-  - execute `npm install`
-  - then execute `node server.js`
-
-- MySQL server setup:
-  - execute `DDL.sql` and `initialData.sql` scripts
-  - create user `dev@localhost` with password `devpass`
-    - alternatively, crate user with custom parameters and edit `config.js` file in `backend/` dir
-  - and grant him all privileges on `hackathon.*`
-
 ## API endpoints
 
 Note: Confirm in server console that the server is running
 on port `8081`, otherwise modify port in API call accordingly
 
+### Events
 * `GET` @ `http://localhost:8081/event/all`
   * returns an array of JSON objects containing `completeReport` objects from database
     * example of response body: 
@@ -49,8 +38,10 @@ on port `8081`, otherwise modify port in API call accordingly
     * Not very REST-ful of me, I know, but React apparently doesn't natively include DELETE method and this makes life easier
     * returns response object with empty body
   
+### Assessment & reports
 * `GET` @ `http://localhost:8081/assessReport/url/:url`
-  * evaluates and assesses threats on provided `url`, inserts `assessmentReport` object into DB, as well as returning it inside of response body
+  * evaluates and assesses threats on provided `url`, inserts new `assessmentReport` object into DB, 
+    as well as returning it inside of response body
   * params: 
     * `url` - unmodified page url or IPv4 address
     * example of a reply
