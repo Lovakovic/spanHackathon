@@ -25,6 +25,6 @@ const eventRouter = require('./routes/event.routes');
 app.use('/event', eventRouter);
 
 const assessmentRouter = require('./routes/assessment.routes');
-app.use('/assess', assessmentRouter);
+app.use('/assessReport', assessmentRouter);
 
 module.exports = app;
