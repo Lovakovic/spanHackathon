@@ -1,5 +1,3 @@
-# CREATE USER 'dev'@'localhost' IDENTIFIED BY 'devpass';
-# GRANT ALL PRIVILEGES ON hackathon.* TO 'dev'@'localhost';
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -16,6 +14,13 @@ DROP SCHEMA IF EXISTS `hackathon` ;
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `hackathon` ;
 USE `hackathon` ;
+
+# Uncomment this if you don't want to change config.js for your local instance
+# CREATE USER 'dev'@'localhost' IDENTIFIED BY 'devpass';
+# GRANT ALL PRIVILEGES ON hackathon.* TO 'dev'@'localhost';
+
+# Change password saving mechanism to one supported by promise-mysql
+# ALTER USER 'dev'@'localhost' IDENTIFIED WITH mysql_native_password BY 'devpass';
 
 -- -----------------------------------------------------
 -- Table `hackathon`.`device`

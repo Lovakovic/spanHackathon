@@ -29,7 +29,7 @@ const assess = async (url) => {
             malware = response.data;
         }
 
-        const malwareCount = malware?.data.length;
+        const malwareCount = malware?.data.length || 0;
 
 
         return { url, pulseCount, malwareCount };
