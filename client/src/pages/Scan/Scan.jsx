@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import {AiOutlineCheckCircle} from "react-icons/ai"
+import apiUrl from "../../env.js";
 
 const Scan = () => {
 
@@ -9,7 +10,7 @@ const Scan = () => {
   const [showMore,setShowMore] = useState(false);
 
   const handleScan = async () =>{
-    const response = await fetch(`http://localhost:8081/assessReport/url/${url}`);
+    const response = await fetch(`${apiUrl}/assessReport/url/${url}`);
     const json = await response.json();
     setData(json)
     setSafeUrl(true);
