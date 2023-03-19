@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
+import { useEffect,useState } from 'react'
 import DatePicker from "react-datepicker";
 import {RxMagnifyingGlass} from "react-icons/rx";
 import Select from 'react-select'
@@ -6,7 +7,6 @@ import CircularLoading from '../../components/CircularLoading/CircularLoading';
 import ScanItem from '../../components/ScanItem/ScanItem';
 import {GrRefresh} from "react-icons/gr";
 import useLoaders from '../../utils/useLoaders';
-import apiUrl from "../../env.js";
 
 
 const Records = ({setShowSidebar}) => {
@@ -34,7 +34,7 @@ const Records = ({setShowSidebar}) => {
 
   const handleDelete = (id) => {
     const deleteFromDB = async () => {
-      const response = await fetch(`${apiUrl}/event/delete/${id}`);
+      const response = await fetch(`http://localhost:8081/event/delete/${id}`);
     }
     const filteredData = data.filter((threat) => threat.id !== id);
     setData(filteredData);
@@ -47,17 +47,12 @@ const Records = ({setShowSidebar}) => {
     setSelectedOptions(selectedOptions)
     console.log(selectedOptions)
 
-    if(selectedOptions){
       const filtered = data?.filter((item) => {
         return item.threatType === selectedOptions.value;
-      });
-      setData(filtered);
-      console.log(filtered)
+      })
+
+      setData(filtered)
     }
-    else{
-      setData(data);
-    }
-  }
 
 
   
@@ -65,7 +60,8 @@ const Records = ({setShowSidebar}) => {
     useEffect(() =>{
         setShowSidebar(true);
         const fetchData = async () => {
-          const response = await fetch(`${apiUrl}/event/all`);
+          const response = await fetch(`http://localhost:8081/event/all`);
+          console.log(`http://localhost:8081/event/all`)
           const json = await response.json();
           console.log(json)
           setData(json)
