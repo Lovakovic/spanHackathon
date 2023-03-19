@@ -20,6 +20,7 @@ const Records = ({setShowSidebar}) => {
   const [se,setSe] = useState();
   const [unwantedSoftware,setUnwantedSoftware] = useState();
   const [flagged,setFlagged] = useState();
+  const [trigger,setTrigger] = useState(false)
 
   const options = [
     { value: 'UNSPECIFIED', label: 'Unspecified' },
@@ -34,8 +35,9 @@ const Records = ({setShowSidebar}) => {
       const response = await fetch(`http://localhost:8081/event/delete/${id}`);
     }
     const filteredData = data.filter((threat) => threat.id !== id);
-    
     setData(filteredData);
+    deleteFromDB();
+    setTrigger(!trigger)
   }
 
   
@@ -61,7 +63,7 @@ const Records = ({setShowSidebar}) => {
 
         fetchData();
 
-    },[])
+    },[trigger])
 
   return (
     <div className="records">

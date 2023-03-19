@@ -1,0 +1,56 @@
+.scan{
+    display: flex;
+    width: 100%;
+
+
+    .top{
+        width:100%;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap:10px;
+
+        span{
+            align-self:flex-start;
+            padding: 10px;
+        }
+    
+    
+        input{
+            border: none;
+            border-radius: 5px;
+            background-color: $secondary-color;
+            padding: 10px;
+            outline: none;
+            font-size: 15px;
+            align-self:flex-start;
+            flex:1;
+    
+        }
+    
+        button{
+            background-image: $gradient;
+            align-self: flex-start;
+            border: none;
+            border-radius: 5px;
+            color: $primary-color;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px 40px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            transition: 0.5s;
+            opacity: 0.6;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    
+    
+            &:hover{
+                opacity: 1;
+                transition: 0.5s;
+            }
+        }
+    }
+
+    
+}
