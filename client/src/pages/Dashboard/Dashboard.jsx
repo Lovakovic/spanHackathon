@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import InfoBox from '../../components/InfoBox/InfoBox';
 import {AiOutlineWifi} from "react-icons/ai";
 import {IoEarthOutline} from "react-icons/io5";
@@ -11,6 +11,8 @@ import { LineChart, Line, XAxis, YAxis } from 'recharts';
 
 
 const Dashboard = ({setShowSidebar}) => {
+
+  const [apiData,setApiData] = useState()
 
   const data = [
     {name: 'Jan', malicious: 4000, decoy: 2400},
@@ -26,6 +28,15 @@ const Dashboard = ({setShowSidebar}) => {
 
     useEffect(() => {
       setShowSidebar(true);
+      const fetchData = async () => {
+        const response = await fetch(`http://localhost:8081/event/all`);
+        console.log(`http://localhost:8081/event/all`)
+        const json = await response.json();
+        console.log(json)
+        setApiData(json)
+      }
+      fetchData()
+
   },[setShowSidebar])
 
   return (

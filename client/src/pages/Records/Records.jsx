@@ -47,17 +47,12 @@ const Records = ({setShowSidebar}) => {
     setSelectedOptions(selectedOptions)
     console.log(selectedOptions)
 
-    if(selectedOptions){
       const filtered = data?.filter((item) => {
         return item.threatType === selectedOptions.value;
-      });
-      setData(filtered);
-      console.log(filtered)
+      })
+
+      setData(filtered)
     }
-    else{
-      setData(data);
-    }
-  }
 
 
   
@@ -65,7 +60,8 @@ const Records = ({setShowSidebar}) => {
     useEffect(() =>{
         setShowSidebar(true);
         const fetchData = async () => {
-          const response = await fetch("http://localhost:8081/event/all");
+          const response = await fetch(`http://localhost:8081/event/all`);
+          console.log(`http://localhost:8081/event/all`)
           const json = await response.json();
           console.log(json)
           setData(json)
