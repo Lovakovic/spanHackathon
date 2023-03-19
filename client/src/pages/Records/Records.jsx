@@ -43,43 +43,53 @@ const Records = ({setShowSidebar}) => {
   }
 
 
-  const handleSelectChange = (selectedOptions) => {
-    setSelectedOptions(selectedOptions)
-    console.log(selectedOptions)
+    const handleSelectChange = (selectedOptions) => {
+        setSelectedOptions(selectedOptions);
+        console.log(selectedOptions);
 
-      const filtered = data?.filter((item) => {
-        return item.threatType === selectedOptions.value;
-      })
+        if (selectedOptions) {
+            const filtered = data?.filter((item) => {
+                return item.threatType === selectedOptions.value;
+            });
+            setFilteredData(filtered);
+        } else {
+            setFilteredData(data);
+        }
+    };
 
-      setData(filtered)
-    }
 
 
-  
 
-    useEffect(() =>{
+
+    useEffect(() => {
         setShowSidebar(true);
         const fetchData = async () => {
-          const response = await fetch(`http://localhost:8081/event/all`);
-          console.log(`http://localhost:8081/event/all`)
-          const json = await response.json();
-          console.log(json)
-          setData(json)
-          setDataReady(true)
+            const response = await fetch(`http://localhost:8081/event/all`);
+            console.log(`http://localhost:8081/event/all`);
+            const json = await response.json();
+            console.log(json);
+            setData(json);
+            setFilteredData(json); // Add this line to initialize filteredData with the original data
+            setDataReady(true);
 
-          const {allScans,unspecified,malware,se,unwantedSoftware,flagged} = useLoaders(json)
-          setAllScans(allScans)
-          setUnspecified(unspecified)
-          setMalware(malware)
-          setSe(se)
-          setUnwantedSoftware(unwantedSoftware)
-          setFlagged(flagged)
-
+            const {
+                allScans,
+                unspecified,
+                malware,
+                se,
+                unwantedSoftware,
+                flagged,
+            } = useLoaders(json);
+            setAllScans(allScans);
+            setUnspecified(unspecified);
+            setMalware(malware);
+            setSe(se);
+            setUnwantedSoftware(unwantedSoftware);
+            setFlagged(flagged);
         };
 
         fetchData();
-
-    },[trigger])
+    }, [trigger]);
 
   return (
     <div className="records">
@@ -110,18 +120,20 @@ const Records = ({setShowSidebar}) => {
           <span>Platform</span>
           <label className='icon'><GrRefresh/></label>
         </div>
-        {dataReady ? data?.map((threat,id) => (
-          <ScanItem
-            key={id}
-            id={threat.id}
-            date={threat.visitedAt}
-            url={threat.urlVisited}
-            ip={threat.originIp}
-            threatType={threat.threatType}
-            platformName={threat.platformName}
-            handleDelete={handleDelete}
-          />
-        )) : null}
+          {dataReady
+              ? (filteredData || data)?.map((threat, id) => (
+                  <ScanItem
+                      key={id}
+                      id={threat.id}
+                      date={threat.visitedAt}
+                      url={threat.urlVisited}
+                      ip={threat.originIp}
+                      threatType={threat.threatType}
+                      platformName={threat.platformName}
+                      handleDelete={handleDelete}
+                  />
+              ))
+              : null}
       </div>
     </div>
   )
