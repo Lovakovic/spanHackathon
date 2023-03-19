@@ -6,11 +6,20 @@ import Select from 'react-select'
 import CircularLoading from '../../components/CircularLoading/CircularLoading';
 import ScanItem from '../../components/ScanItem/ScanItem';
 import {GrRefresh} from "react-icons/gr";
+import useLoaders from '../../utils/useLoaders';
 
 
 const Records = ({setShowSidebar}) => {
 
   const [startDate, setStartDate] = useState(new Date());
+  const [data,setData] = useState();
+  const [dataReady,setDataReady] = useState(false);
+  const [allScans,setAllScans] = useState();
+  const [unspecified,setUnspecified] = useState();
+  const [malware,setMalware] = useState();
+  const [se,setSe] = useState();
+  const [unwantedSoftware,setUnwantedSoftware] = useState();
+  const [flagged,setFlagged] = useState();
 
   const options = [
     { value: 'UNSPECIFIED', label: 'Unspecified' },
@@ -20,8 +29,38 @@ const Records = ({setShowSidebar}) => {
     { value: 'POTENTIALLY_HARMFUL', label: 'Potentialy Harmful' },
   ]
 
+  const handleDelete = (id) => {
+    const deleteFromDB = async () => {
+      const response = await fetch(`http://localhost:8081/event/delete/${id}`);
+    }
+    const filteredData = data.filter((threat) => threat.id !== id);
+    
+    setData(filteredData);
+  }
+
+  
+
     useEffect(() =>{
         setShowSidebar(true);
+        const fetchData = async () => {
+          const response = await fetch("http://localhost:8081/event/all");
+          const json = await response.json();
+          console.log(json)
+          setData(json)
+          setDataReady(true)
+
+          const {allScans,unspecified,malware,se,unwantedSoftware,flagged} = useLoaders(json)
+          setAllScans(allScans)
+          setUnspecified(unspecified)
+          setMalware(malware)
+          setSe(se)
+          setUnwantedSoftware(unwantedSoftware)
+          setFlagged(flagged)
+
+        };
+
+        fetchData();
+
     },[])
 
   return (
@@ -37,11 +76,12 @@ const Records = ({setShowSidebar}) => {
         <Select options={options} className="select"/>
       </div>
       <div className="loaders">
-        <CircularLoading percentage="100" number="50" color="grey" title="All scans"/>
-        <CircularLoading percentage="73" number="50" color="#058ed9" title="Unspecified"/>
-        <CircularLoading percentage="12" number="50" color="#ca3c25" title="Malware"/>
-        <CircularLoading percentage="90" number="50" color="#6b2737" title="SE"/>
-        <CircularLoading percentage="44" number="50" color="#e08e45" title="Flagged"/>
+        <CircularLoading percentage="100" number={allScans ? allScans : "0"} color="grey" title="All scans"/>
+        <CircularLoading percentage={unspecified ? (unspecified/allScans)*100 : "0"} number={unspecified ? unspecified : "0"} color="#058ed9" title="Unspecified"/>
+        <CircularLoading percentage={malware ? (malware/allScans)*100 : "0"} number={malware ? malware : "0"} color="#ca3c25" title="Malware"/>
+        <CircularLoading percentage={se ? (se/allScans)*100 : "0"} number={se ? se : "0"} color="#6b2737" title="SE"/>
+        <CircularLoading percentage={unwantedSoftware ? (unwantedSoftware/allScans)*100 : "0"} number={unwantedSoftware ? unwantedSoftware : "0"} color="#7FB069" title="Unwanted software"/>
+        <CircularLoading percentage={flagged ? (flagged/allScans)*100 : "0"} number={flagged ? flagged : "0"} color="#e08e45" title="Flagged"/>
       </div>
       <div className="list">
         <div className="titles">
@@ -52,12 +92,18 @@ const Records = ({setShowSidebar}) => {
           <span>Platform</span>
           <label className='icon'><GrRefresh/></label>
         </div>
-        <ScanItem 
-          date="12.12.2022." 
-          url="www.minecraft.com" 
-          ip="192.168.18.204" 
-          threatType="unspecified"
-          platformName="vindov"/>
+        {dataReady ? data?.map((threat,id) => (
+          <ScanItem
+            key={id}
+            id={threat.id}
+            date={threat.visitedAt}
+            url={threat.urlVisited}
+            ip={threat.originIp}
+            threatType={threat.threatType}
+            platformName={threat.platformName}
+            handleDelete={handleDelete}
+          />
+        )) : null}
       </div>
     </div>
   )
