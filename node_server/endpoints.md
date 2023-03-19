@@ -4,6 +4,12 @@
   - execute `npm install`
   - then execute `node server.js`
 
+- MySQL server setup:
+  - execute `DDL.sql` and `initialData.sql` scripts
+  - create user `dev@localhost` with password `devpass`
+    - alternatively, crate user with custom parameters and edit `config.js` file in `backend/` dir
+  - and grant him all privileges on `hackathon.*`
+
 ## API endpoints
 
 Note: Confirm in server console that the server is running
