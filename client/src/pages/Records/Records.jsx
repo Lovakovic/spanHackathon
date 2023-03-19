@@ -21,6 +21,8 @@ const Records = ({setShowSidebar}) => {
   const [unwantedSoftware,setUnwantedSoftware] = useState();
   const [flagged,setFlagged] = useState();
   const [trigger,setTrigger] = useState(false)
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [filteredData,setFilteredData] = useState();
 
   const options = [
     { value: 'UNSPECIFIED', label: 'Unspecified' },
@@ -39,6 +41,24 @@ const Records = ({setShowSidebar}) => {
     deleteFromDB();
     setTrigger(!trigger)
   }
+
+
+  const handleSelectChange = (selectedOptions) => {
+    setSelectedOptions(selectedOptions)
+    console.log(selectedOptions)
+
+    if(selectedOptions){
+      const filtered = data?.filter((item) => {
+        return item.threatType === selectedOptions.value;
+      });
+      setData(filtered);
+      console.log(filtered)
+    }
+    else{
+      setData(data);
+    }
+  }
+
 
   
 
@@ -75,7 +95,7 @@ const Records = ({setShowSidebar}) => {
           </label>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className="datepicker"/>
         </div>
-        <Select options={options} className="select"/>
+        <Select options={options} className="select" onChange={handleSelectChange}/>
       </div>
       <div className="loaders">
         <CircularLoading percentage="100" number={allScans ? allScans : "0"} color="grey" title="All scans"/>
