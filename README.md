@@ -1,8 +1,8 @@
 # Span hackathon - TvEZ
 
 This is the official repo of TvEZ group from Span frontEd Hackathon 2023. 
-You can [visit](shiny-duckanoo-86358f.netlify.app) the deployed frontend-client.
-Also [here](spanhackathon-production.up.railway.app) is the API link, you can view available endpoints which 
+You can [visit](www.shiny-duckanoo-86358f.netlify.app) the deployed frontend-client.
+Also [here](www.spanhackathon-production.up.railway.app) is the API link, you can view available endpoints which 
 are docummented in`node_server/endpoints.md`, just replace `https://localhost:8081` base url with 
 `spanhackathon-production.up.railway.app` if you want to test the calls to the endpoints outside the app.
 
